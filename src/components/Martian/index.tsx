@@ -5,15 +5,12 @@ import { ISpriteContext } from '../../providers/SpriteProvider/interfaces';
 
 // martian
 const Martian: FC<any> = () => {
-  const { data, animations, imgOptions } = useContext(SpriteContext) as ISpriteContext;
-
+  const { animations, imgOptions } = useContext(SpriteContext) as ISpriteContext;
   const spriteRef: any = useRef<any | null>(null); // sprite
-
-  console.log(animations);
 
   // use effect
   useEffect(() => {
-    if (imgOptions instanceof Object) {
+    if (imgOptions instanceof Object && spriteRef.current) {
       spriteRef.current.start();
     }
   }, [ imgOptions ]);

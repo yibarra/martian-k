@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 
 import Main from './layout/Main';
 
+import PositionProvider from './providers/PositionProvider';
+
 import './index.css';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Main />
+    <PositionProvider>
+      <Main />
+    </PositionProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

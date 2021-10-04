@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Layer, Stage } from 'react-konva';
 
 import Martian from '../../components/Martian';
+import { PositionContext } from '../../providers/PositionProvider';
 
 import SpriteProvider from '../../providers/SpriteProvider';
 
@@ -9,9 +10,10 @@ const { PUBLIC_URL } = process.env; // public
 
 // main
 const Main = () => {
+  const { setPosition } = useContext<any>(PositionContext);
   
-  document.addEventListener("keydown", ev => {
-    console.log('move');
+  document.addEventListener("keydown", (ev: any) => {
+    console.log('move', ev);
   });
 
   // render
